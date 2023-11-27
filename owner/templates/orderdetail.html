@@ -1,0 +1,36 @@
+{%extends 'base.html'%}
+{%block body_block%}
+
+
+<div class="card text-center mt-2">
+    <div class="card-header">
+        Product Detail
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{order.product.book_name}}</h5>
+        <p class="card-text">{{order.product.author}}</p>
+
+    </div>
+    <div class="card-footer text-body-secondary">
+
+    </div>
+</div>
+
+
+<div class="card text-center mt-2">
+    <div class="card-header">
+        User Detail
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{order.user.username}}</h5>
+        <p class="card-text">{{order.user.email}}</p>
+        <p class="card-text">{{order.user.address}}</p>
+
+    </div>
+    <div class="card-footer text-body-secondary">
+
+    </div>
+</div>
+
+
+{%endblock%}

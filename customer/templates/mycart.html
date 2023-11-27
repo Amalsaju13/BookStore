@@ -1,0 +1,62 @@
+{%extends 'cbase.html'%}
+{%block body_block%}
+
+
+{% if messages %}
+{% for message in messages %}
+<div class="row">
+    <div class="col-4"></div>
+    {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+    <div class="col-4 bg-danger text-white">
+        {{message}}
+    </div>
+    {% endif %}
+    <div class="col-4"></div>
+</div>
+{% endfor %}
+
+{% endif %}
+<div class="row">
+    <div class="col-8">
+        {%for cart in carts%}
+        <div class="row">
+
+            <div class="col-4 mt-2">
+                <img src="{{cart.product.image.url}}" class="rounded float-start" alt="..." height="275px" width="85%">
+            </div>
+            <div class="col-4 mt-3">
+                <div class="card" style="width: 18rem;">
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{cart.product.book_name}}</li>
+                        <li class="list-group-item">{{cart.product.author}}</li>
+                        <li class="list-group-item">₹ {{cart.product.price}}</li>
+                        <li class="list-group-item">{{cart.date}}</li>
+                    </ul>
+                </div>
+                <a href="{%url 'removeitem' cart.id%}" class="btn btn-danger mt-1">Remove</a>
+                <a href="{%url 'ordercreate' cart.id cart.product.id%}" class="btn btn-success mt-1">Buy Now</a>
+            </div>
+            <div class="col-2 mt-2">
+
+
+            </div>
+        </div>
+
+        <hr>
+        {%endfor%}
+    </div>
+    <div class="col-4 mt-4">
+        <div class="card">
+            <div class="card-header">
+                Price Details
+            </div>
+            <div class="card-body">
+                <h5 class="card-title">Special title treatment</h5>
+                <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                <strong>Total Amount : {{total}}</strong>
+            </div>
+        </div>
+    </div>
+</div>
+
+{%endblock%}

@@ -1,0 +1,26 @@
+
+{%extends 'base.html'%}
+{%block body_block%}
+
+
+<div class="row">
+        <div class="col-2"></div>
+        <div class="col-8">
+            <br>
+            <div class="card" style="width: 50%">
+                {%if book.image%}
+                <img src="{{book.image.url}}" class="card-img-top" alt="...">
+                {%endif%}
+                <ul class="list-group list-group-flush">
+
+                    <li class="list-group-item"><h5>{{book.book_name}}</h5></li>
+                    <li class="list-group-item">Author : {{book.author}}</li>
+                    <li class="list-group-item">Price : ₹ {{book.price}}</li>
+                    <li class="list-group-item">Copies : {{book.copies}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </div>
+
+{%endblock%}
